@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Proyecto_Eventos_Progra_V.Models.Evento>
+
+@{
+    ViewBag.Title = "Eventos";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Eventos disponibles</h2>
+
+<p>
+    @Html.ActionLink("Registrar nuevo evento", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Evento")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha")
+        </th>
+        <th>
+            @Html.DisplayName("Hora")
+        </th>
+        <th>
+            @Html.DisplayName("Lugar")
+        </th>
+        <th>
+            @Html.DisplayName("Tipo")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre_Evento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_Evento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hora_Evento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lugar.lugar1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Evento.Tipo_Evento1)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_Evento }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id_Evento }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id_Evento })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,48 @@
+﻿@model Proyecto_Eventos.Models.Usuario_Login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Inicio de Sesión</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+
+<div class="form-horizontal">
+
+    <h3>@ViewBag.Mensaje</h3>
+
+    <h4>Ingrese sus datos</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("Nombre de usuario", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.nombre_Usuario, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.nombre_Usuario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Contraseña", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.contrasena, new { htmlAttributes = new { @class = "form-control", @required = "required" } })
+            @Html.ValidationMessageFor(model => model.contrasena, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Iniciar sesión" class="btn btn-default" asp-action="Login" asp-controller="Usuario_Login" />
+        </div>
+    </div>
+</div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

@@ -1,0 +1,57 @@
+﻿@model Proyecto_Eventos_Progra_V.Models.Evento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalles del evento</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Evento")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_Evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Fecha")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_Evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Hora")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hora_Evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Lugar")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lugar.lugar1)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Tipo")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Evento.Tipo_Evento1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>
